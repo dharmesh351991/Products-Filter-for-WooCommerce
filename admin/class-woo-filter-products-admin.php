@@ -62,41 +62,44 @@ function menu_woocommerce_filter_products_cb(){
 	}
 	$is_filter = get_option( WOOCOM_FILTER_OPTS.'is_filter' );
 	$is_ajax = get_option( WOOCOM_FILTER_OPTS.'is_ajax' );
+	$tax_relation = get_option( WOOCOM_FILTER_OPTS.'tax_relation', $tax_relation );
 	$in_shop_page = get_option( WOOCOM_FILTER_OPTS.'in_shop_page' );
 	$in_shop_cat_page = get_option( WOOCOM_FILTER_OPTS.'in_shop_cat_page' );
 	?>
-	<div class="wrap">
+	<div class="wrap woocodex-product-filter-opts">
 		<h2>General Settings</h2>
 		<form method="post">
-			<p>
-				<span>Enable Filter</span><br/>
-				<label class="switch">
-					  <input type="checkbox" name="is_filter" value="true" <?php echo $is_filter == 'true' ? 'checked' : '' ?> ><span class="slider round"></span>
-				</label>
-			</p>
-			<p>
-				<span>Enable AJAX</span><br/>
-				<label class="switch">
-					  <input type="checkbox" name="is_ajax" value="true" <?php echo $is_ajax == 'true' ? 'checked' : '' ?> ><span class="slider round"></span>
-				</label>
-			</p>
-			<p>
-				<span>in Shop Page ?</span><br/>
-				<label class="switch">
-					  <input type="checkbox" name="in_shop_page" value="true" <?php echo $in_shop_page == 'true' ? 'checked' : '' ?> ><span class="slider round"></span>
-				</label>
-			</p>
-			<p>
-				<span>in Shop Category Page ?</span><br/>
-				<label class="switch">
-					  <input type="checkbox" name="in_shop_cat_page" value="true" <?php echo $in_shop_cat_page == 'true' ? 'checked' : '' ?> ><span class="slider round"></span>
-				</label>
-			</p>
-			<p>
-				<span>Tax Query Relation</span><br/>
-					  <input type="radio" name="tax_relation" value="or" <?php echo $tax_relation == 'or' ? 'checked' : '' ?> ><span>OR</span>
-					  <input type="radio" name="tax_relation" value="and" <?php echo $tax_relation == 'and' ? 'checked' : '' ?> ><span>AND</span>
-			</p>
+			<div class="woocodex-product-filter-common-fields">
+				<p>
+					<span>Enable Filter</span><br/>
+					<label class="switch">
+						  <input type="checkbox" name="is_filter" value="true" <?php echo $is_filter == 'true' ? 'checked' : '' ?> ><span class="slider round"></span>
+					</label>
+				</p>
+				<p>
+					<span>Enable AJAX</span><br/>
+					<label class="switch">
+						  <input type="checkbox" name="is_ajax" value="true" <?php echo $is_ajax == 'true' ? 'checked' : '' ?> ><span class="slider round"></span>
+					</label>
+				</p>
+				<p>
+					<span>in Shop Page ?</span><br/>
+					<label class="switch">
+						  <input type="checkbox" name="in_shop_page" value="true" <?php echo $in_shop_page == 'true' ? 'checked' : '' ?> ><span class="slider round"></span>
+					</label>
+				</p>
+				<p>
+					<span>in Shop Category Page ?</span><br/>
+					<label class="switch">
+						  <input type="checkbox" name="in_shop_cat_page" value="true" <?php echo $in_shop_cat_page == 'true' ? 'checked' : '' ?> ><span class="slider round"></span>
+					</label>
+				</p>
+				<p>
+					<span>Tax Query Relation</span><br/>
+						  <input type="radio" name="tax_relation" value="or" <?php echo $tax_relation == 'or' ? 'checked' : '' ?> ><span>OR</span>
+						  <input type="radio" name="tax_relation" value="and" <?php echo $tax_relation == 'and' ? 'checked' : '' ?> ><span>AND</span>
+				</p>
+			</div>
 			<?php
 				$taxonomies = WOO_getTaxonomies();
 				if( !empty( $taxonomies ) ){
