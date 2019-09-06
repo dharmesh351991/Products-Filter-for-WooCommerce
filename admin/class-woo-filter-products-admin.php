@@ -52,13 +52,18 @@ function menu_woocommerce_filter_products_cb(){
 		$is_filter = $_REQUEST['is_filter'];
 		$is_ajax = $_REQUEST['is_ajax'];
 		$tax_relation = $_REQUEST['tax_relation'];
+		$in_shop_page = $_REQUEST['in_shop_page'];
+		$in_shop_cat_page = $_REQUEST['in_shop_cat_page'];
 		update_option( WOOCOM_FILTER_OPTS.'is_filter', $is_filter );
 		update_option( WOOCOM_FILTER_OPTS.'is_ajax', $is_ajax );
 		update_option( WOOCOM_FILTER_OPTS.'tax_relation', $tax_relation );
+		update_option( WOOCOM_FILTER_OPTS.'in_shop_page', $in_shop_page );
+		update_option( WOOCOM_FILTER_OPTS.'in_shop_cat_page', $in_shop_cat_page );
 	}
 	$is_filter = get_option( WOOCOM_FILTER_OPTS.'is_filter' );
 	$is_ajax = get_option( WOOCOM_FILTER_OPTS.'is_ajax' );
-	$tax_relation = get_option( WOOCOM_FILTER_OPTS.'tax_relation' );
+	$in_shop_page = get_option( WOOCOM_FILTER_OPTS.'in_shop_page' );
+	$in_shop_cat_page = get_option( WOOCOM_FILTER_OPTS.'in_shop_cat_page' );
 	?>
 	<div class="wrap">
 		<h2>General Settings</h2>
@@ -73,6 +78,18 @@ function menu_woocommerce_filter_products_cb(){
 				<span>Enable AJAX</span><br/>
 				<label class="switch">
 					  <input type="checkbox" name="is_ajax" value="true" <?php echo $is_ajax == 'true' ? 'checked' : '' ?> ><span class="slider round"></span>
+				</label>
+			</p>
+			<p>
+				<span>in Shop Page ?</span><br/>
+				<label class="switch">
+					  <input type="checkbox" name="in_shop_page" value="true" <?php echo $in_shop_page == 'true' ? 'checked' : '' ?> ><span class="slider round"></span>
+				</label>
+			</p>
+			<p>
+				<span>in Shop Category Page ?</span><br/>
+				<label class="switch">
+					  <input type="checkbox" name="in_shop_cat_page" value="true" <?php echo $in_shop_cat_page == 'true' ? 'checked' : '' ?> ><span class="slider round"></span>
 				</label>
 			</p>
 			<p>

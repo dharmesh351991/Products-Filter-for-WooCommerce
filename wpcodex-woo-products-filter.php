@@ -87,7 +87,7 @@ if(class_exists('Woo_productFilter')){
 require 'includes/class-woo-filter-products.php';
 require 'public/hooks-woo-filter-products-public.php';
 
-if( file_exists( get_template_directory().'/product-filter-form.php' ) ){	
+if( !file_exists( get_template_directory().'/product-filter-form.php' ) ){	
     include( get_template_directory().'/product-filter-form.php' );
 }else{
 	include( WOO_PRO_FILTER_DIR.'/template/product-filter-form.php' );
