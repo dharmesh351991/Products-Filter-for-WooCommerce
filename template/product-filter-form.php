@@ -22,7 +22,8 @@ if( !function_exists('WOO_get_filter_form_html') ){
 					if( $input_type == 'select' || $input_type == 'mselect' ){
 						$inputName = ( $input_type == 'mselect' ? $input_name.'[]' : $input_name );
 						$form_html .= do_action( 'before_select_woocodex_filter_form' );
-						$selectClass = apply_filters( 'woocodex_filter_select_class', ''  );
+						$selectClass = apply_filters( 'woocodex_filter_select_class', array()  );
+						$selectClass = implode(' ',$selectClass);
 						$form_html .= '<select name="'.$inputName.'" class="common-'.$input_type.'-class '.$selectClass.'" '.( $input_type == 'mselect' ? 'multiple' : '' ).'>';
 					}
 					foreach ($terms as $term) {
