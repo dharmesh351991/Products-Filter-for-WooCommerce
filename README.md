@@ -1,2 +1,1 @@
-# Products-Filter-for-WooCommerce
-WooCommerce Products filter Plugin Development
+# WC FILTER FOR PRODUCTS ON SHOP PAGE
